@@ -23,8 +23,8 @@
     <!-- <model-viewer> HTML element -->
     <h1>Retail Development welcomes you to NSM 2023!</h1>  
 	  
-<model-viewer src="4Way Display.glb"
-	      poster="4Way Display Poster.webp" shadow-intensity="1"> ar camera-controls touch-action="pan-y" alt="A 3D model carousel">
+<model-viewer src="NSM Models/4Way.glb"
+	      poster="NSM Models/4Way.webp" shadow-intensity="1"> ar camera-controls touch-action="pan-y" alt="A 3D model carousel">
 
  <button slot="ar-button" id="ar-button">
     View in your space
@@ -40,16 +40,16 @@
 	
   <div class="slider">
     <div class="slides">
-      <button class="slide selected" onclick="switchSrc(this, '4Way')" style="background-image: url('4Way Display Poster.webp');">	
+      <button class="slide selected" onclick="switchSrc(this, '4Way')" style="background-image: url('NSM Models/4Way.webp');">	
 	
-</button><button class="slide" onclick="switchSrc(this, 'Rack')" style="background-image: url('Rack Display Poster.webp');">
+</button><button class="slide" onclick="switchSrc(this, 'Rack')" style="background-image: url('NSM Models/Rack.webp');">
  </button></div>
   </div>
 </model-viewer>	
 <script type="module">
   const modelViewer = document.querySelector("model-viewer");
 window.switchSrc = (element, name) => {
-    const base = "4Way Display","Rack Display" + name;
+    const base = "NSM Models/" + name;
     modelViewer.src = base + '.glb';
     modelViewer.poster = base + '.webp';
     const slides = document.querySelectorAll(".slide");
