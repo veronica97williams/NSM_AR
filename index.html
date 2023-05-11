@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<title>&lt;model-viewer&gt; template</title>	
+  <meta charset="utf-8">	
+<head>
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js"></script>  
+  <link href='https://fonts.googleapis.com/css?family=Amaranth' rel='stylesheet'>
+  <style>
+  model-viewer{
+	  width: 1000px;
+  	  height: 800px;
+	  margin: auto;
+	  }
+  body{
+      background-color: rgb(0,155,221);
+     font-family: 'Amaranth', font-size: 22px;
+    text-align: center;
+	 }
+  </style>
+	<model-viewer...></model-viewer>
+  </head>
+  <body>
+    <!-- <model-viewer> HTML element -->
+    <h1>Retail Development welcomes you to NSM 2023!</h1>  
+	  
+	  
+	  
+	  
+    <model-viewer id="4way" camera-controls touch-action="pan-y" src="Full_4-way-opt-v1 (1).gltf" ar alt="A 3D model of 4way">
+  <div class="controls">
+    <div>Variant: <select id="variant"></select></div>
+  </div>
+</model-viewer>
+<script>
+const modelViewerVariants = document.querySelector("model-viewer#4way");
+const select = document.querySelector('#variant');
+
+modelViewerVariants.addEventListener('load', () => {
+  const names = modelViewerVariants.availableVariants;
+  for (const name of names) {
+    const option = document.createElement('option');
+    option.value = name;
+    option.textContent = name;
+    select.appendChild(option);
+  }
+  // Adds a default option.
+  const option = document.createElement('option');
+    option.value = 'default';
+    option.textContent = 'Default';
+    select.appendChild(option);
+});
+
+select.addEventListener('input', (event) => {
+  modelViewerVariants.variantName = event.target.value === 'default' ? null : event.target.value;
+});
+</script>
+
+</div> 
+</body>
+</html>
